@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - Аренда Музыкального Оборудования</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #ffc107 !important;
+        }
+        .page-content {
+            padding: 4rem 0;
+            min-height: calc(100vh - 120px);
+        }
+        .btn {
+            border-radius: 0.5rem;
+        }
+        .nav-link.active {
+            color: #ffc107 !important;
+            font-weight: bold;
+            border-bottom: 2px solid #ffc107;
+        }
+        .map-placeholder {
+            border: 2px solid #ced4da;
+            border-radius: 0.5rem;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            min-height: 350px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand text-warning fw-bold" href="index.html"><i class="bi bi-speaker-fill me-2"></i>RentMusik System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="catalog.html">Каталог</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="rental_form.html">Аренда</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="contact.html">Контакты</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container page-content">
+        <div class="bg-white p-5 rounded-3 shadow-lg">
+            <h2 class="text-center mb-4 text-dark fw-bold border-bottom pb-3">Наши Контакты и Режим Работы</h2>
+            <p class="lead text-center text-muted mb-5">
+                Свяжитесь с нами любым удобным способом или приезжайте в наш офис.
+            </p>
+            
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <h4 class="text-primary mb-3"><i class="bi bi-info-circle me-2"></i>Контактная Информация</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item bg-white border-bottom"><i class="bi bi-geo-alt-fill text-warning me-3"></i> <strong>Адрес:</strong> ул. Горького, 87, Владимир, Владимирская обл.</li>
+                        <li class="list-group-item bg-white border-bottom"><i class="bi bi-telephone-fill text-warning me-3"></i> <strong>Телефон:</strong> <a href="tel:+74951234567" class="text-decoration-none text-dark fw-bold">+7 (495) 123-45-67</a></li>
+                        <li class="list-group-item bg-white border-bottom"><i class="bi bi-envelope-fill text-warning me-3"></i> <strong>Email:</strong> <a href="mailto:info@rentmusik.ru" class="text-decoration-none text-dark fw-bold">info@rentmusik.ru</a></li>
+                        <li class="list-group-item bg-white"><i class="bi bi-clock-fill text-warning me-3"></i> <strong>Режим работы:</strong> Пн-Пт: 10:00 - 20:00 | Сб-Вс: Выходной (дежурный менеджер онлайн)</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-6 mb-4">
+                    <h4 class="text-primary mb-3"><i class="bi bi-map me-2"></i>Схема проезда</h4>
+                    <div class="map-placeholder">
+                        <div>
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8890.511634045679!2d40.36801807833817!3d56.14624740000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x414c7bd85b388435%3A0x8c265fe1688af0b5!2z0JLQu9Cw0LTQuNC80LjRgNGB0LrQuNC5INCz0L7RgdGD0LTQsNGA0YHRgtCy0LXQvdC90YvQuSDRg9C90LjQstC10YDRgdC40YLQtdGCLiDQmtC-0YDQv9GD0YEgMSAo0JPQu9Cw0LLQvdGL0Lkg0LrQvtGA0L_Rg9GBKQ!5e0!3m2!1sru!2sru!4v1764677826619!5m2!1sru!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-4 mt-5 border-top text-center text-muted bg-light">
+        <p>&copy; 2025 RentMusik System. Все права защищены.</p>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
