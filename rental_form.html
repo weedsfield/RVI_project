@@ -26,6 +26,13 @@
             font-weight: bold;
             border-bottom: 2px solid #ffc107;
         }
+        .submit-button {
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+        }
+        input[type="date"] {
+            border-left: 3px solid #0d6efd; 
+        }
     </style>
 </head>
 <body>
@@ -54,92 +61,109 @@
             </div>
         </div>
     </nav>
+    
+    <main>
+        <section class="container page-content">
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="bg-white p-5 rounded-3 shadow-lg form-container">
+                        <h2 class="text-center mb-4 text-dark fw-bold border-bottom pb-3">Оформление Заявки на Аренду</h2>
+                        <p class="lead text-center text-muted mb-5">
+                            Заполните все поля, чтобы забронировать оборудование.
+                        </p>
 
-    <div class="container page-content">
-        <div class="row justify-content-center">
-            <div class="col-lg-10">
-                <div class="bg-white p-5 rounded-3 shadow-lg">
-                    <h2 class="text-center mb-4 text-dark fw-bold border-bottom pb-3">Оформление Заявки на Аренду</h2>
-                    <p class="lead text-center text-muted mb-5">
-                        Заполните все поля, чтобы забронировать оборудование.
-                    </p>
-
-                    <form onsubmit="event.preventDefault(); showConfirmation();">
-                        <h4 class="mb-3 text-secondary border-bottom pb-2">1. Контактная Информация</h4>
-                        <div class="row mb-3">
-                            <div class="col-md-6 mb-3 mb-md-0">
-                                <label for="fullName" class="form-label fw-bold">Ваше ФИО</label>
-                                <input type="text" class="form-control" id="fullName" placeholder="Иванов Иван Иванович" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="phone" class="form-label fw-bold">Номер телефона</label>
-                                <input type="tel" class="form-control" id="phone" placeholder="+7 (XXX) XXX-XX-XX" required>
-                            </div>
-                        </div>
-                        <div class="mb-5">
-                            <label for="email" class="form-label fw-bold">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="email@example.com" required>
-                        </div>
-                        
-                        <h4 class="mb-3 text-secondary border-bottom pb-2">2. Детали Аренды</h4>
-                        <div class="mb-3">
-                            <label for="equipment" class="form-label fw-bold">Выберите Оборудование</label>
-                            <select class="form-select" id="equipment" required>
-                                <option value="" disabled selected>-- Выберите из каталога --</option>
-                                <option value="guitar">Электрогитара Strat Master</option>
-                                <option value="drums">Ударная Установка</option>
-                                <option value="mic">Студийный Конденсаторный Микрофон</option>
-                            </select>
-                        </div>
-
-                        <div class="row mb-4">
-                            <div class="col-md-6 mb-3 mb-md-0">
-                                <label for="startDate" class="form-label fw-bold">Дата начала аренды</label>
-                                <input type="date" class="form-control" id="startDate" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label for="endDate" class="form-label fw-bold">Дата окончания аренды</label>
-                                <input type="date" class="form-control" id="endDate" required>
-                            </div>
-                        </div>
-
-                        <div class="mb-4">
-                            <label for="comments" class="form-label fw-bold">Комментарии / Дополнительные пожелания</label>
-                            <textarea class="form-control" id="comments" rows="3" placeholder="Укажите количество, нужна ли доставка или другие детали."></textarea>
-                        </div>
-
-                        <div class="form-check mb-4">
-                            <input class="form-check-input" type="checkbox" value="" id="policyCheck" required>
-                            <label class="form-check-label" for="policyCheck">
-                                Я согласен с <a href="#" class="text-decoration-none text-primary">Условиями Аренды</a>.
-                            </label>
-                        </div>
-
-                        <button type="submit" class="btn btn-warning btn-lg w-100 shadow fw-bold">Отправить Заявку на Бронирование</button>
-                    </form>
-
-                    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header bg-success text-white">
-                                    <h5 class="modal-title" id="confirmationModalLabel">Заявка принята!</h5>
-                                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <form onsubmit="event.preventDefault(); showConfirmation();" id="rentalForm">
+                            
+                            <fieldset class="mb-5 p-3 border rounded-3">
+                                <legend class="float-none w-auto px-2 fs-5 text-secondary">1. Контактная Информация</legend>
+                                
+                                <div class="row mb-3">
+                                    <div class="col-md-6 mb-3 mb-md-0">
+                                        <label for="fullName" class="form-label fw-bold">Ваше ФИО</label>
+                                        <input type="text" class="form-control" id="fullName" placeholder="Иванов Иван Иванович" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="phone" class="form-label fw-bold">Номер телефона</label>
+                                        <input type="tel" class="form-control" id="phone" placeholder="+7 (XXX) XXX-XX-XX" required>
+                                    </div>
                                 </div>
-                                <div class="modal-body">
-                                    <p>Спасибо, ваша заявка успешно отправлена.</p>
-                                    <p>Менеджер свяжется с вами в ближайшее время.</p>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label fw-bold">Email</label>
+                                    <input type="email" class="form-control" id="email" placeholder="email@example.com" required>
+                                </div>
+                            </fieldset>
+                            
+                            <fieldset class="mb-5 p-3 border rounded-3">
+                                <legend class="float-none w-auto px-2 fs-5 text-secondary">2. Детали Аренды</legend>
+
+                                <div class="mb-3">
+                                    <label for="equipment" class="form-label fw-bold">Выберите Оборудование</label>
+                                    <select class="form-select" id="equipment" required>
+                                        <option value="" disabled selected>-- Выберите из каталога --</option>
+                                        <option value="guitar">Электрогитара Strat Master</option>
+                                        <option value="drums">Ударная Установка</option>
+                                        <option value="mic">Студийный Конденсаторный Микрофон</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="quantity" class="form-label fw-bold">Количество (шт.)</label>
+                                    <input type="number" class="form-control" id="quantity" value="1" min="1" max="10" required>
+                                </div>
+
+                                <div class="row mb-4">
+                                    <div class="col-md-6 mb-3 mb-md-0">
+                                        <label for="startDate" class="form-label fw-bold">Дата начала аренды</label>
+                                        <input type="date" class="form-control" id="startDate" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="endDate" class="form-label fw-bold">Дата окончания аренды</label>
+                                        <input type="date" class="form-control" id="endDate" required>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <fieldset class="mb-4 p-3 border rounded-3">
+                                <legend class="float-none w-auto px-2 fs-5 text-secondary">3. Дополнительно</legend>
+                                
+                                <div class="mb-4">
+                                    <label for="comments" class="form-label fw-bold">Комментарии / Дополнительные пожелания</label>
+                                    <textarea class="form-control" id="comments" rows="3" placeholder="Укажите количество, нужна ли доставка или другие детали."></textarea>
+                                </div>
+
+                                <div class="form-check mb-4">
+                                    <input class="form-check-input" type="checkbox" value="" id="policyCheck" required>
+                                    <label class="form-check-label" for="policyCheck">
+                                        Я согласен с <a href="#" class="text-decoration-none text-primary">Условиями Аренды</a>.
+                                    </label>
+                                </div>
+                            </fieldset>
+
+                            <button type="submit" class="btn btn-warning btn-lg w-100 shadow fw-bold submit-button">Отправить Заявку на Бронирование</button>
+                        </form>
+
+                        <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header bg-success text-white">
+                                        <h5 class="modal-title" id="confirmationModalLabel">Заявка принята!</h5>
+                                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p>Спасибо, ваша заявка успешно отправлена.</p>
+                                        <p>Менеджер свяжется с вами в ближайшее время.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
-        </div>
-    </div>
+        </section>
+    </main>
 
     <footer class="py-4 mt-5 border-top text-center text-muted bg-light">
-        <p>&copy; 2025 RentMusik System. Все права защищены.</p>
+        <p>&copy; 2024 RentMusik System. Все права защищены.</p>
     </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
