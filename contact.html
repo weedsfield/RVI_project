@@ -9,38 +9,76 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa;
+            background-color: #f0f2f5; 
+            color: #343a40;
         }
-        .navbar-nav .nav-link:hover {
+        .rounded-card {
+            border-radius: 1.25rem !important;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .rounded-card:hover {
+            transform: translateY(-2px); 
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .btn {
+            border-radius: 0.75rem;
+        }
+
+        .navbar-dark {
+            background-color: #1a1a2e !important;
+        }
+        .navbar-nav .nav-link {
+            color: rgba(255, 255, 255, 0.7) !important;
+            padding: 0.5rem 1rem;
+            position: relative;
+        }
+        .nav-link.active {
             color: #ffc107 !important;
+            font-weight: bold;
+        }
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 2px;
+            background-color: #ffc107;
+            border-radius: 1px;
         }
         .page-content {
             padding: 4rem 0;
             min-height: calc(100vh - 120px);
         }
-        .btn {
-            border-radius: 0.5rem;
-        }
-        .nav-link.active {
-            color: #ffc107 !important;
-            font-weight: bold;
-            border-bottom: 2px solid #ffc107;
-        }
+
         .map-placeholder {
             border: 2px solid #ced4da;
-            border-radius: 0.5rem;
+            border-radius: 0.75rem;
             background-color: #e9ecef;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             min-height: 350px;
+            transition: all 0.5s ease;
+        }
+        .map-placeholder:hover {
+            background-color: #d6dbdf;
+        }
+        
+        .contact-item {
+            transition: background-color 0.3s ease;
+        }
+        .contact-item:hover {
+            background-color: #f8f9fa !important;
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-dark sticky-top shadow-lg">
         <div class="container">
             <a class="navbar-brand text-warning fw-bold" href="index.html"><i class="bi bi-speaker-fill me-2"></i>RentMusik System</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,7 +105,7 @@
     
     <main>
         <section class="container page-content">
-            <div class="bg-white p-5 rounded-3 shadow-lg">
+            <div class="bg-white p-5 rounded-card shadow-lg">
                 <h2 class="text-center mb-4 text-dark fw-bold border-bottom pb-3">Наши Контакты и Режим Работы</h2>
                 <p class="lead text-center text-muted mb-5">
                     Свяжитесь с нами любым удобным способом или приезжайте в наш офис.
@@ -76,11 +114,11 @@
                 <div class="row">
                     <div class="col-md-6 mb-4">
                         <h4 class="text-primary mb-3"><i class="bi bi-info-circle me-2"></i>Контактная Информация</h4>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item bg-white border-bottom"><i class="bi bi-geo-alt-fill text-warning me-3"></i> <strong>Адрес:</strong> ул. Горького, 87, Владимир, Владимирская обл</li>
-                            <li class="list-group-item bg-white border-bottom"><i class="bi bi-telephone-fill text-warning me-3"></i> <strong>Телефон:</strong> <a href="tel:+74951234567" class="text-decoration-none text-dark fw-bold">+7 (495) 123-45-67</a></li>
-                            <li class="list-group-item bg-white border-bottom"><i class="bi bi-envelope-fill text-warning me-3"></i> <strong>Email:</strong> <a href="mailto:info@rentmusik.ru" class="text-decoration-none text-dark fw-bold">info@rentmusik.ru</a></li>
-                            <li class="list-group-item bg-white"><i class="bi bi-clock-fill text-warning me-3"></i> <strong>Режим работы:</strong> Пн-Пт: 10:00 - 20:00 | Сб-Вс: Выходной (дежурный менеджер онлайн)</li>
+                        <ul class="list-group list-group-flush rounded-card">
+                            <li class="list-group-item bg-white border-bottom contact-item"><i class="bi bi-geo-alt-fill text-warning me-3"></i> <strong>Адрес:</strong> г. Ваш Город, ул. Музыкальная, 10, оф. 201</li>
+                            <li class="list-group-item bg-white border-bottom contact-item"><i class="bi bi-telephone-fill text-warning me-3"></i> <strong>Телефон:</strong> <a href="tel:+74951234567" class="text-decoration-none text-dark fw-bold">+7 (495) 123-45-67</a></li>
+                            <li class="list-group-item bg-white border-bottom contact-item"><i class="bi bi-envelope-fill text-warning me-3"></i> <strong>Email:</strong> <a href="mailto:info@rentmusik.ru" class="text-decoration-none text-dark fw-bold">info@rentmusik.ru</a></li>
+                            <li class="list-group-item bg-white contact-item"><i class="bi bi-clock-fill text-warning me-3"></i> <strong>Режим работы:</strong> Пн-Пт: 10:00 - 20:00 | Сб-Вс: Выходной (дежурный менеджер онлайн)</li>
                         </ul>
                     </div>
 
