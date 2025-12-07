@@ -5,37 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Аренда - Аренда Музыкального Оборудования</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/lib/w3.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f0f2f5;
-            color: #343a40;
+            color: #212121;
         }
         .rounded-card {
-            border-radius: 1.25rem !important;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.08);
+            border-radius: 1.5rem !important;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
         .btn {
-            border-radius: 0.75rem;
+            border-radius: 1rem;
             transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-weight: 700;
         }
-        .btn-warning:hover {
+        .btn-accent {
+            background-color: #ff3d00 !important; 
+            border-color: #ff3d00 !important;
+            color: white !important;
+            box-shadow: 0 4px 10px rgba(255, 61, 0, 0.5);
+        }
+        .btn-accent:hover {
+            background-color: #e63900 !important;
+            border-color: #e63900 !important;
             transform: scale(1.02);
-            filter: brightness(1.1);
+            box-shadow: 0 6px 15px rgba(255, 61, 0, 0.7);
         }
 
         .navbar-dark {
-            background-color: #1a1a2e !important;
+            background-color: #1a1a2e !important; 
+            border-bottom: 5px solid #ff3d00;
+        }
+        .navbar-brand {
+            font-weight: 900 !important;
+            letter-spacing: 2px;
+            color: #ff3d00 !important;
+            font-size: 1.5rem;
         }
         .navbar-nav .nav-link {
-            color: rgba(255, 255, 255, 0.7) !important;
-            padding: 0.5rem 1rem;
+            color: rgba(255, 255, 255, 0.8) !important;
+            padding: 0.7rem 1.2rem;
             position: relative;
+            font-weight: 500;
+            transition: color 0.3s ease;
         }
         .nav-link.active {
-            color: #ffc107 !important;
-            font-weight: bold;
+            color: #ffffff !important;
+            font-weight: 700;
         }
         .nav-link.active::after {
             content: '';
@@ -44,8 +64,8 @@
             left: 50%;
             transform: translateX(-50%);
             width: 80%;
-            height: 2px;
-            background-color: #ffc107;
+            height: 3px;
+            background-color: #ff3d00;
             border-radius: 1px;
         }
         .page-content {
@@ -55,38 +75,45 @@
 
         .form-control, .form-select, .form-check-input {
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 0.75rem;
+            border: 1px solid #ced4da;
+            padding: 0.8rem;
         }
         .form-control:focus, .form-select:focus {
-            border-color: #ffc107; 
-            box-shadow: 0 0 0 0.25rem rgba(255, 193, 7, 0.25);
+            border-color: #ff3d00;
+            box-shadow: 0 0 0 0.25rem rgba(255, 61, 0, 0.35);
         }
 
-        input[type="date"] {
-            border-left: 5px solid #0d6efd;
-        }
-        
         fieldset {
-            border-color: #dee2e6 !important;
+            border: 3px solid #1a1a2e !important; 
             transition: border-color 0.3s ease;
+            padding: 2.5rem !important;
+            border-radius: 1.25rem;
         }
         fieldset:hover {
-            border-color: #adb5bd !important;
+            border-color: #ff3d00 !important;
         }
-
+        legend {
+            font-size: 1.6rem !important;
+            color: #1a1a2e !important;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            padding: 0 1rem;
+        }
         .submit-button {
             letter-spacing: 1px;
-            font-size: 1.1rem;
-            background-color: #ffc107;
-            color: #1a1a2e !important;
-            font-weight: bold;
+            font-size: 1.25rem;
+        }
+        .modal-header.w3-green-bg {
+            background-color: #4CAF50 !important;
         }
     </style>
 </head>
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-dark sticky-top shadow-lg">
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-dark sticky-top w3-animate-top shadow-lg">
         <div class="container">
-            <a class="navbar-brand text-warning fw-bold" href="index.html"><i class="bi bi-speaker-fill me-2"></i>RentMusik System</a>
+            <a class="navbar-brand" href="index.html"><i class="bi bi-speaker-fill me-2"></i>RENTMUSIK</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -113,39 +140,39 @@
         <section class="container page-content">
             <div class="row justify-content-center">
                 <div class="col-lg-10">
-                    <div class="bg-white p-5 rounded-card shadow-lg form-container">
-                        <h2 class="text-center mb-4 text-dark fw-bold border-bottom pb-3">Оформление Заявки на Аренду</h2>
-                        <p class="lead text-center text-muted mb-5">
+                    <div class="w3-white p-6 w3-card-4 rounded-card w3-animate-opacity">
+                        <h2 class="text-center mb-4 text-dark fw-bold border-bottom pb-3 fs-1">Оформление Заявки на Аренду</h2>
+                        <p class="lead text-center text-secondary mb-6 fs-5">
                             Заполните все поля, чтобы забронировать оборудование.
                         </p>
 
                         <form onsubmit="event.preventDefault(); showConfirmation();" id="rentalForm">
                             
-                            <fieldset class="mb-5 p-3 border rounded-3">
-                                <legend class="float-none w-auto px-2 fs-5 text-secondary">1. Контактная Информация</legend>
+                            <fieldset class="mb-5 border rounded-3 border-4 w3-panel">
+                                <legend class="float-none w-auto px-4 w3-text-indigo">1. Контактная Информация</legend>
                                 
-                                <div class="row mb-3">
-                                    <div class="col-md-6 mb-3 mb-md-0">
+                                <div class="row mb-4">
+                                    <div class="col-md-6 mb-4 md:mb-0">
                                         <label for="fullName" class="form-label fw-bold">Ваше ФИО</label>
-                                        <input type="text" class="form-control" id="fullName" placeholder="Иванов Иван Иванович" required>
+                                        <input type="text" class="form-control w3-input" id="fullName" placeholder="Иванов Иван Иванович" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="phone" class="form-label fw-bold">Номер телефона</label>
-                                        <input type="tel" class="form-control" id="phone" placeholder="+7 (XXX) XXX-XX-XX" required>
+                                        <input type="tel" class="form-control w3-input" id="phone" placeholder="+7 (XXX) XXX-XX-XX" required>
                                     </div>
                                 </div>
-                                <div class="mb-3">
+                                <div class="mb-4">
                                     <label for="email" class="form-label fw-bold">Email</label>
-                                    <input type="email" class="form-control" id="email" placeholder="email@example.com" required>
+                                    <input type="email" class="form-control w3-input" id="email" placeholder="email@example.com" required>
                                 </div>
                             </fieldset>
                             
-                            <fieldset class="mb-5 p-3 border rounded-3">
-                                <legend class="float-none w-auto px-2 fs-5 text-secondary">2. Детали Аренды</legend>
+                            <fieldset class="mb-5 border rounded-3 border-4 w3-panel">
+                                <legend class="float-none w-auto px-4 w3-text-indigo">2. Детали Аренды</legend>
 
-                                <div class="mb-3">
+                                <div class="mb-4">
                                     <label for="equipment" class="form-label fw-bold">Выберите Оборудование</label>
-                                    <select class="form-select" id="equipment" required>
+                                    <select class="form-select w3-select" id="equipment" required>
                                         <option value="" disabled selected>-- Выберите из каталога --</option>
                                         <option value="guitar">Электрогитара Strat Master</option>
                                         <option value="drums">Ударная Установка</option>
@@ -155,49 +182,49 @@
 
                                 <div class="mb-4">
                                     <label for="quantity" class="form-label fw-bold">Количество (шт.)</label>
-                                    <input type="number" class="form-control" id="quantity" value="1" min="1" max="10" required>
+                                    <input type="number" class="form-control w3-input" id="quantity" value="1" min="1" max="10" required>
                                 </div>
 
                                 <div class="row mb-4">
-                                    <div class="col-md-6 mb-3 mb-md-0">
+                                    <div class="col-md-6 mb-4 md:mb-0">
                                         <label for="startDate" class="form-label fw-bold">Дата начала аренды</label>
-                                        <input type="date" class="form-control" id="startDate" required>
+                                        <input type="date" class="form-control w3-input" id="startDate" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="endDate" class="form-label fw-bold">Дата окончания аренды</label>
-                                        <input type="date" class="form-control" id="endDate" required>
+                                        <input type="date" class="form-control w3-input" id="endDate" required>
                                     </div>
                                 </div>
                             </fieldset>
 
-                            <fieldset class="mb-4 p-3 border rounded-3">
-                                <legend class="float-none w-auto px-2 fs-5 text-secondary">3. Дополнительно</legend>
+                            <fieldset class="mb-5 border rounded-3 border-4 w3-panel">
+                                 <legend class="float-none w-auto px-4 w3-text-indigo">3. Дополнительно</legend>
                                 
                                 <div class="mb-4">
                                     <label for="comments" class="form-label fw-bold">Комментарии / Дополнительные пожелания</label>
-                                    <textarea class="form-control" id="comments" rows="3" placeholder="Укажите количество, нужна ли доставка или другие детали."></textarea>
+                                    <textarea class="form-control w3-input" id="comments" rows="3" placeholder="Укажите количество, нужна ли доставка или другие детали."></textarea>
                                 </div>
 
                                 <div class="form-check mb-4">
                                     <input class="form-check-input" type="checkbox" value="" id="policyCheck" required>
                                     <label class="form-check-label" for="policyCheck">
-                                        Я согласен с <a href="#" class="text-decoration-none text-primary">Условиями Аренды</a>.
+                                        Я согласен с <a href="#" class="text-decoration-none text-danger fw-bold w3-hover-text-dark-gray">Условиями Аренды</a>.
                                     </label>
                                 </div>
                             </fieldset>
 
-                            <button type="submit" class="btn btn-warning btn-lg w-100 shadow fw-bold submit-button">Отправить Заявку на Бронирование</button>
+                            <button type="submit" class="btn btn-accent w-100 shadow-lg submit-button w3-ripple">Отправить Заявку на Бронирование</button>
                         </form>
 
                         <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content rounded-card">
-                                    <div class="modal-header bg-success text-white">
-                                        <h5 class="modal-title" id="confirmationModalLabel">Заявка принята!</h5>
+                                    <div class="modal-header w3-green-bg text-white">
+                                        <h5 class="modal-title fw-bold" id="confirmationModalLabel">Заявка принята!</h5>
                                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                        <p><i class="bi bi-check-circle-fill text-success me-2"></i>Спасибо, ваша заявка успешно отправлена.</p>
+                                        <p class="fs-5"><i class="bi bi-check-circle-fill text-success me-2"></i>Спасибо, ваша заявка успешно отправлена.</p>
                                         <p>Менеджер свяжется с вами в ближайшее время.</p>
                                     </div>
                                 </div>
@@ -209,8 +236,8 @@
         </section>
     </main>
 
-    <footer class="py-4 mt-5 border-top text-center text-muted bg-light">
-        <p>&copy; 2024 RentMusik System. Все права защищены.</p>
+    <footer class="py-4 mt-5 border-top text-center text-muted w3-dark-gray text-white">
+        <p class="m-0">&copy; 2024 RentMusik System. Все права защищены.</p>
     </footer>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
